@@ -1,0 +1,20 @@
+<cc.linktime.TimeLineCalender.library.ui.CalenderTimeLineEvent
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    android:background="#FFFFCC"
+    >
+    <TextView
+            android:id="@+id/event_during"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:paddingLeft="5dp"
+            android:textSize="12dp"
+            />
+    <TextView
+            android:id="@+id/event_info"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:padding="5dp"
+            />
+    </cc.linktime.TimeLineCalender.library.ui.CalenderTimeLineEvent>

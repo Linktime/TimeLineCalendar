@@ -1,0 +1,25 @@
+<cc.linktime.TimeLineCalender.library.ui.CalenderWeekCell
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/side_cell_bg"
+        >
+
+<TextView
+        android:id="@+id/date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:textSize="12dp"
+        />
+<TextView
+        android:id="@+id/weekday"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp"
+        android:paddingLeft="10dp"
+        />
+</cc.linktime.TimeLineCalender.library.ui.CalenderWeekCell>

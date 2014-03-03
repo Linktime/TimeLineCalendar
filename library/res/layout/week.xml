@@ -1,0 +1,10 @@
+<cc.linktime.TimeLineCalender.library.ui.CalenderWeek
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        >
+    <include layout="@layout/week_body" android:id="@+id/weekbody"/>
+
+    <include layout="@layout/week_side" android:id="@+id/weekside"/>
+
+</cc.linktime.TimeLineCalender.library.ui.CalenderWeek>

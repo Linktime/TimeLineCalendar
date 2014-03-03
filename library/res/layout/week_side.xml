@@ -1,0 +1,23 @@
+<cc.linktime.TimeLineCalender.library.ui.CalenderWeekSide
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/weekside"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        >
+        <include layout="@layout/week_cell"/>
+        <include layout="@layout/week_cell"/>
+        <include layout="@layout/week_cell"/>
+        <include layout="@layout/week_cell"/>
+        <include layout="@layout/week_cell"/>
+        <include layout="@layout/week_cell"/>
+        <include layout="@layout/week_cell"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""/>
+        >
+</cc.linktime.TimeLineCalender.library.ui.CalenderWeekSide>

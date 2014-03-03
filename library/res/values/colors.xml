@@ -1,0 +1,10 @@
+<resources
+    >
+    <color name="sun_bg">#FF3300</color>
+    <color name="mon_bg">#FF4C17</color>
+    <color name="tue_bg">#FF6532</color>
+    <color name="wed_bg">#FF7E4B</color>
+    <color name="thu_bg">#FF9D64</color>
+    <color name="fri_bg">#FFBB7D</color>
+    <color name="sat_bg">#FFCC9C</color>
+    </resources>

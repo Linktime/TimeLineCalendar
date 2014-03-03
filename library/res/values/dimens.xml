@@ -1,0 +1,6 @@
+<resources
+    >
+    <dimen name="hour_height">40dp</dimen>
+    <dimen name="timeline_padding">20dp</dimen>
+    <dimen name="event_height">40dp</dimen>
+    </resources>
