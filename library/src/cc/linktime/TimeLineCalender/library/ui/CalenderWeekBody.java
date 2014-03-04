@@ -3,6 +3,8 @@ package cc.linktime.TimeLineCalender.library.ui;
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.TranslateAnimation;
@@ -15,12 +17,17 @@ import cc.linktime.TimeLineCalender.library.R;
  * Time: 11:50 AM
  * To change this template use File | Settings | File Templates.
  */
-public class CalenderWeekBody extends ViewGroup implements CalenderWeekSide.CursorListener {
+public class CalenderWeekBody extends ViewGroup {
     private int totalWidth;
     private int totalHeight;
     private int timelineWidth;
     private int timelineEventListWidth;
-    private int weekday=0;
+
+    private float startY;
+    private float lastY;
+
+    private int screenHeight;
+
     private int hour_height = getResources().getDimensionPixelSize(R.dimen.hour_height);
 
     private final int [] colors = {getResources().getColor(R.color.sun_bg),
@@ -52,10 +59,8 @@ public class CalenderWeekBody extends ViewGroup implements CalenderWeekSide.Curs
         timelineWidth = totalWidth / 5;
         timelineEventListWidth = timelineWidth * 4;
 
-        findViewById(R.id.timeline).measure(timelineWidth,hour_height*24 + getResources().getDimensionPixelSize(R.dimen.timeline_padding)*2);
+        findViewById(R.id.timeline).measure(timelineWidth,totalHeight);
         findViewById(R.id.timeline_eventlist).measure(timelineEventListWidth,totalHeight);
-
-        findViewById(R.id.cursor).measure((totalHeight/9)/4,totalHeight/9);
 
         setMeasuredDimension(totalWidth, totalHeight);
 
@@ -66,32 +71,52 @@ public class CalenderWeekBody extends ViewGroup implements CalenderWeekSide.Curs
         //To change body of implemented methods use File | Settings | File Templates.
         findViewById(R.id.timeline).layout(0,0,timelineWidth,totalHeight);
         findViewById(R.id.timeline_eventlist).layout(timelineWidth,0,totalWidth,totalHeight);
-        setCursor(totalWidth - (totalHeight/9)/4, totalHeight/9*weekday, totalWidth, totalHeight/9*(weekday+1));
-    }
-
-    public void setCursor(int left, int top, int right, int bottom) {
-        View cursor = findViewById(R.id.cursor);
-        cursor.layout(left, top, right, bottom);
     }
 
     @Override
-    public void updateCursor(int weekday) {
-        //To change body of implemented methods use File | Settings | File Templates.
-        CalenderWeekSideCursor cursor = (CalenderWeekSideCursor)findViewById(R.id.cursor);
-        TranslateAnimation ta = new TranslateAnimation(0,0,
-                totalHeight/9*(this.weekday - weekday),0);
-        ta.setDuration(500);
+    public boolean onTouchEvent(MotionEvent event) {
+        boolean retVal =  super.onTouchEvent(event);    //To change body of overridden methods use File | Settings | File Templates.
+        if (event.getAction() == MotionEvent.ACTION_MOVE)
+            Log.i("Body","onTouchEvent --- move");
+        if (event.getAction() == MotionEvent.ACTION_SCROLL)
+            Log.i("Body","onTouchEvent --- scroll");
+        if (event.getAction() == MotionEvent.ACTION_CANCEL)
+            Log.i("Body","onTouchEvent --- cancel");
+        return retVal;
+    }
 
-        ValueAnimator valueAnimator = ValueAnimator.ofInt(colors[this.weekday],colors[weekday]);
-        valueAnimator.setDuration(500);
-        valueAnimator.addUpdateListener(cursor);
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        boolean ret =  super.dispatchTouchEvent(ev);    //To change body of overridden methods use File | Settings | File Templates.
+        switch (ev.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                startY = ev.getY();
+                break;
+            case MotionEvent.ACTION_MOVE:
+                int temp = (int)(startY - ev.getY() + lastY);
+                Log.i("Body", "dispatchTouchEvent --- " + String.valueOf(temp));
+                if (temp<0) {
+                    scrollTo(0,0);
+                }  else if(temp>totalHeight-getScreenHeight() + hour_height) {
+                    scrollTo(0,totalHeight-getScreenHeight() + hour_height);
+                } else {
+                    scrollTo(0,temp);
+                }
+                break;
+            case MotionEvent.ACTION_UP:
+                lastY += startY - ev.getY();
+                break;
+            default:
+                break;
+        }
+        return true;
+    }
 
-        this.weekday = weekday;
-        cursor.setCursorColor(weekday);
-        cursor.startAnimation(ta);
-        valueAnimator.start();
-        setCursor(totalWidth - (totalHeight / 9) / 4, totalHeight / 9 * weekday, totalWidth, totalHeight / 9 * (weekday + 1));
-//        cursor.setCursorColor(colors[weekday]);
+    public void setScreenHeight(int screenHeight) {
+        this.screenHeight = screenHeight;
+    }
 
+    public int getScreenHeight() {
+        return screenHeight;
     }
 }

@@ -21,6 +21,8 @@ public class CalenderWeek extends ViewGroup {
     private int totalHeight;
     private int bodyWidth;
     private int sideWidth;
+    private int bodyHeight;
+    private int hour_height = getResources().getDimensionPixelSize(R.dimen.hour_height);
 
     private View weekbody;
     private View weekside;
@@ -50,31 +52,29 @@ public class CalenderWeek extends ViewGroup {
 
         Log.i("Week", "Week --- onMeasure " + totalHeight + " " + totalWidth);
 
-        sideWidth = totalWidth / 5;
-        bodyWidth = sideWidth * 4;
+        sideWidth = totalWidth / 5 + totalHeight/36;
+        bodyWidth = totalWidth /5 * 4;
 
-        //findViewById(R.id.weekside).measure(sideWidth,totalHeight);
-        //findViewById(R.id.weekbody).measure(bodyWidth,totalHeight);
+        bodyHeight = hour_height*25 + getResources().getDimensionPixelSize(R.dimen.timeline_padding)*2;
 
         CalenderWeekSide weekside = (CalenderWeekSide)findViewById(R.id.weekside);
         CalenderWeekBody weekBody = (CalenderWeekBody)findViewById(R.id.weekbody);
 
         Log.i("Week", "Week --- onMeasure sideWidth " + sideWidth);
         weekside.measure(sideWidth, totalHeight);
-        weekBody.measure(bodyWidth, totalHeight);
-
-        weekside.setCursorListener(weekBody);
+        weekBody.measure(bodyWidth, bodyHeight);
+        weekBody.setScreenHeight(totalHeight);
         weekside.setEventListListener((CalenderTimeLineEventList)weekBody.findViewById(R.id.timeline_eventlist));
 
-        setMeasuredDimension(totalWidth, totalHeight);
+        setMeasuredDimension(totalWidth, bodyHeight);
 
     }
 
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         //To change body of implemented methods use File | Settings | File Templates.
-        findViewById(R.id.weekbody).layout(0,0,bodyWidth,totalHeight);
-        findViewById(R.id.weekside).layout(bodyWidth,0,totalWidth,totalHeight);
+        findViewById(R.id.weekbody).layout(0,0,bodyWidth,bodyHeight);
+        findViewById(R.id.weekside).layout(bodyWidth-totalHeight/36,0,totalWidth,bodyHeight);
     }
 
     public ArrayList<ArrayList<CalenderTimeLineEvent>> getEventList() {
@@ -86,5 +86,10 @@ public class CalenderWeek extends ViewGroup {
          * 事件列表向量数组必须等于7，对应一周七天
          */
         ((CalenderTimeLineEventList)findViewById(R.id.weekbody).findViewById(R.id.timeline_eventlist)).setEvenList(eventList);
+        int [] counts = new int[7];
+        for (int i=0;i<7;i++) {
+            counts[i] = eventList.get(i).size();
+        }
+        ((CalenderWeekSide)findViewById(R.id.weekside)).initEventCount(counts);
     }
 }

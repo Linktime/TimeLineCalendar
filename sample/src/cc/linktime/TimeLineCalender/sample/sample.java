@@ -31,7 +31,12 @@ public class sample extends Activity {
         EventBuilder eventBuilder = new EventBuilder(this);
         CalenderTimeLineEvent event = eventBuilder.setDuring(2, 5).setInfo("我没空").builder(); //使用事件builder生成事件
 
-        (eventList.get(0)).add(event); //添加到对应某一天中，其中eventlist内部有7个ArrayList，对应7天
+        (eventList.get(3)).add(event); //添加到对应某一天中，其中eventlist内部有7个ArrayList，对应7天
+
+        (eventList.get(1)).add(event);
+        (eventList.get(1)).add(eventBuilder.setDuring(6,7).builder());
+
+
         week.setEventList(eventList);
 
 

@@ -6,11 +6,5 @@
         >
     <include layout="@layout/day_timeline" android:id="@+id/timeline" />
     <include layout="@layout/day_timeline_eventlist" android:id="@+id/timeline_eventlist"/>
-    <cc.linktime.TimeLineCalender.library.ui.CalenderWeekSideCursor
-        android:id="@+id/cursor"
-        android:layout_width="1dp"
-        android:layout_height="1dp"
-        />
-
 
         </cc.linktime.TimeLineCalender.library.ui.CalenderWeekBody>

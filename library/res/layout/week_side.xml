@@ -20,4 +20,9 @@
                 android:layout_height="wrap_content"
                 android:text=""/>
         >
+        <cc.linktime.TimeLineCalender.library.ui.CalenderWeekSideCursor
+                android:id="@+id/cursor"
+                android:layout_width="1dp"
+                android:layout_height="1dp"
+                />
 </cc.linktime.TimeLineCalender.library.ui.CalenderWeekSide>

@@ -1,7 +1,11 @@
 package cc.linktime.TimeLineCalender.library.ui;
 
 import android.content.Context;
+import android.graphics.*;
 import android.util.AttributeSet;
+import android.util.Log;
+import android.view.MotionEvent;
+import android.view.View;
 import android.view.ViewGroup;
 import cc.linktime.TimeLineCalender.library.R;
 
@@ -19,6 +23,7 @@ public class CalenderTimeLineEventList extends ViewGroup implements CalenderWeek
     private int totalWidth;
     private int totalHeight;
     private int weekday;
+
     private ArrayList<ArrayList<CalenderTimeLineEvent>> evenList;
     private int hour_height = getResources().getDimensionPixelSize(R.dimen.hour_height);
 
@@ -33,6 +38,18 @@ public class CalenderTimeLineEventList extends ViewGroup implements CalenderWeek
 
     public CalenderTimeLineEventList(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
+    }
+
+    @Override
+    protected boolean drawChild(Canvas canvas, View child, long drawingTime) {
+        boolean ret = super.drawChild(canvas, child, drawingTime);    //To change body of overridden methods use File | Settings | File Templates.
+        int borderWidth = 5;
+        Paint d = new Paint();
+        LinearGradient lg = new LinearGradient(0,child.getBottom()-5,0,child.getBottom(),Color.rgb(204,204,204),Color.rgb(255,255,255), Shader.TileMode.MIRROR);
+        d.setShader(lg);
+        d.setStyle(Paint.Style.FILL_AND_STROKE);
+        canvas.drawRect(child.getLeft(),child.getBottom()-borderWidth,child.getRight(),child.getBottom(),d);
+        return ret;
     }
 
     @Override
@@ -69,11 +86,13 @@ public class CalenderTimeLineEventList extends ViewGroup implements CalenderWeek
     }
 
     @Override
-    public void updateEventList(int weekday){
+    public int updateEventList(int weekday){
         this.weekday = weekday;
         removeAllViews();
         for (CalenderTimeLineEvent event : evenList.get(weekday)) {
             addView(event);
         }
+        return evenList.get(weekday).size();
     }
+
 }

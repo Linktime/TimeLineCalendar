@@ -19,6 +19,7 @@ public class CalenderWeekSideCursor extends View implements ValueAnimator.Animat
     private int weekday=0;
     private int lastWeekday = 0;
     private int colorIndex=0;
+    private int cursorHeight;
 
     private final int [] colors = {getResources().getColor(R.color.sun_bg),
             getResources().getColor(R.color.mon_bg),
@@ -65,6 +66,14 @@ public class CalenderWeekSideCursor extends View implements ValueAnimator.Animat
     public void setCursorColor(int weekday){
         this.lastWeekday = this.weekday;
         this.weekday = weekday;
+    }
+
+    public void setCursorHeight(int cursorHeight) {
+        this.cursorHeight = cursorHeight;
+    }
+
+    public int getCursorHeight() {
+        return cursorHeight;
     }
 
     @Override

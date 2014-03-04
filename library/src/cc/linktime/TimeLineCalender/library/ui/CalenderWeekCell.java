@@ -2,6 +2,7 @@ package cc.linktime.TimeLineCalender.library.ui;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.ViewGroup;
 
 /**
@@ -46,6 +47,7 @@ public class CalenderWeekCell extends ViewGroup {
 
         getChildAt(0).measure(totalWidth,totalHeight/3);
         getChildAt(1).measure(totalWidth,totalHeight*2/3);
+        getChildAt(2).measure(24,24);
         setMeasuredDimension(totalWidth,totalHeight);
 
 
@@ -56,5 +58,8 @@ public class CalenderWeekCell extends ViewGroup {
         //To change body of implemented methods use File | Settings | File Templates.
         getChildAt(0).layout(0,0,totalWidth,totalHeight/3);
         getChildAt(1).layout(0,totalHeight/3,totalWidth,totalHeight);
+        Log.i("Cell", "onLayout --- " + String.valueOf(getRight()));
+        getChildAt(2).layout(getRight()-49,(getBottom()-getTop())/2-12,getRight()-25,(getBottom()-getTop())/2+12);
     }
+
 }
