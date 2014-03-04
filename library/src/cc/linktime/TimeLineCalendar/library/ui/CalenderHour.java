@@ -1,4 +1,4 @@
-package cc.linktime.TimeLineCalender.library.ui;
+package cc.linktime.TimeLineCalendar.library.ui;
 
 import android.content.Context;
 import android.util.AttributeSet;

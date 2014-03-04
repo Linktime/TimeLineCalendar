@@ -1,10 +1,10 @@
-package cc.linktime.TimeLineCalender.library.ui.util;
+package cc.linktime.TimeLineCalendar.library.util;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import cc.linktime.TimeLineCalender.library.R;
-import cc.linktime.TimeLineCalender.library.ui.CalenderTimeLineEvent;
-import cc.linktime.TimeLineCalender.library.ui.CalenderWeek;
+import cc.linktime.TimeLineCalendar.library.ui.CalenderTimeLineEvent;
+import cc.linktime.TimeLineCalendar.library.ui.CalenderWeek;
 
 import java.util.ArrayList;
 

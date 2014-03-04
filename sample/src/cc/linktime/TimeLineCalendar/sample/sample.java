@@ -1,14 +1,14 @@
-package cc.linktime.TimeLineCalender.sample;
+package cc.linktime.TimeLineCalendar.sample;
 
 import android.app.Activity;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.widget.LinearLayout;
-import cc.linktime.TimeLineCalender.library.ui.CalenderTimeLineEvent;
-import cc.linktime.TimeLineCalender.library.ui.CalenderWeek;
-import cc.linktime.TimeLineCalender.library.ui.util.CalenderWeekBuilder;
-import cc.linktime.TimeLineCalender.library.ui.util.EventBuilder;
+import cc.linktime.TimeLineCalendar.library.ui.CalenderTimeLineEvent;
+import cc.linktime.TimeLineCalendar.library.ui.CalenderWeek;
+import cc.linktime.TimeLineCalendar.library.util.CalenderWeekBuilder;
+import cc.linktime.TimeLineCalendar.library.util.EventBuilder;
+
 
 import java.util.ArrayList;
 
@@ -20,7 +20,6 @@ public class sample extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        LayoutInflater layoutInflater = getLayoutInflater();
         LinearLayout root = (LinearLayout)findViewById(R.id.root);
 
         CalenderWeekBuilder weekBuilder = new CalenderWeekBuilder(this);   //首先生成一个周视图builder
