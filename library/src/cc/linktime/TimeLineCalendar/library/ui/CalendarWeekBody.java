@@ -14,7 +14,7 @@ import cc.linktime.TimeLineCalender.library.R;
  * Time: 11:50 AM
  * To change this template use File | Settings | File Templates.
  */
-public class CalenderWeekBody extends ViewGroup {
+public class CalendarWeekBody extends ViewGroup {
     private int totalWidth;
     private int totalHeight;
     private int timelineWidth;
@@ -35,15 +35,15 @@ public class CalenderWeekBody extends ViewGroup {
             getResources().getColor(R.color.fri_bg),
             getResources().getColor(R.color.sat_bg),};
 
-    public CalenderWeekBody(Context context) {
+    public CalendarWeekBody(Context context) {
         super(context);
     }
 
-    public CalenderWeekBody(Context context, AttributeSet attrs) {
+    public CalendarWeekBody(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public CalenderWeekBody(Context context, AttributeSet attrs, int defStyle) {
+    public CalendarWeekBody(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 

@@ -1,4 +1,4 @@
-<cc.linktime.TimeLineCalendar.library.ui.CalenderWeekSide
+<cc.linktime.TimeLineCalendar.library.ui.CalendarWeekSide
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/weekside"
         android:layout_height="wrap_content"
@@ -20,9 +20,9 @@
                 android:layout_height="wrap_content"
                 android:text=""/>
         >
-        <cc.linktime.TimeLineCalendar.library.ui.CalenderWeekSideCursor
+        <cc.linktime.TimeLineCalendar.library.ui.CalendarWeekSideCursor
                 android:id="@+id/cursor"
                 android:layout_width="1dp"
                 android:layout_height="1dp"
                 />
-</cc.linktime.TimeLineCalendar.library.ui.CalenderWeekSide>
+</cc.linktime.TimeLineCalendar.library.ui.CalendarWeekSide>

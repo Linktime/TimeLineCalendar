@@ -13,22 +13,22 @@ import cc.linktime.TimeLineCalender.library.R;
  * Time: 3:20 PM
  * To change this template use File | Settings | File Templates.
  */
-public class CalenderTimeLineEvent extends ViewGroup {
+public class CalendarTimeLineEvent extends ViewGroup {
 
     private int totalWidth;
     private int totalHeight;
     private int start;
     private int end;
 
-    public CalenderTimeLineEvent(Context context) {
+    public CalendarTimeLineEvent(Context context) {
         super(context);
     }
 
-    public CalenderTimeLineEvent(Context context, AttributeSet attrs) {
+    public CalendarTimeLineEvent(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public CalenderTimeLineEvent(Context context, AttributeSet attrs, int defStyle) {
+    public CalendarTimeLineEvent(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 

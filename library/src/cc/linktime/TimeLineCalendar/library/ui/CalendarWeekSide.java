@@ -18,7 +18,7 @@ import cc.linktime.TimeLineCalender.library.R;
  * Time: 11:41 AM
  * To change this template use File | Settings | File Templates.
  */
-public class CalenderWeekSide extends ViewGroup {
+public class CalendarWeekSide extends ViewGroup {
 
     public interface EventListListener{
         public int updateEventList(int weekday);
@@ -41,15 +41,15 @@ public class CalenderWeekSide extends ViewGroup {
             getResources().getColor(R.color.fri_bg),
             getResources().getColor(R.color.sat_bg)};
 
-    public CalenderWeekSide(Context context) {
+    public CalendarWeekSide(Context context) {
         super(context);
     }
 
-    public CalenderWeekSide(Context context, AttributeSet attrs) {
+    public CalendarWeekSide(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public CalenderWeekSide(Context context, AttributeSet attrs, int defStyle) {
+    public CalendarWeekSide(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 
@@ -87,7 +87,7 @@ public class CalenderWeekSide extends ViewGroup {
         cellHeight = totalHeight/9;
         cellWidth = totalWidth-cursorHeight/4;
 
-        CalenderWeekSideCursor cursor = (CalenderWeekSideCursor)findViewById(R.id.cursor);
+        CalendarWeekSideCursor cursor = (CalendarWeekSideCursor)findViewById(R.id.cursor);
         cursor.setCursorHeight(cellHeight);
         cursorHeight = cellHeight;
 
@@ -103,7 +103,7 @@ public class CalenderWeekSide extends ViewGroup {
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         //To change body of implemented methods use File | Settings | File Templates.
-        CalenderWeekSideCursor cursor = (CalenderWeekSideCursor)findViewById(R.id.cursor);
+        CalendarWeekSideCursor cursor = (CalendarWeekSideCursor)findViewById(R.id.cursor);
         for (int i=0;i<getChildCount();i++) {
             getChildAt(i).layout(cursorHeight/4,cellHeight * i, totalWidth, cellHeight * (i+1));
         }
@@ -116,7 +116,7 @@ public class CalenderWeekSide extends ViewGroup {
 
     public void refresh() {
         for (int i=0;i<7;i++) {
-            CalenderWeekCell cellChild = (CalenderWeekCell)getChildAt(i);
+            CalendarWeekCell cellChild = (CalendarWeekCell)getChildAt(i);
             cellChild.setBackgroundColor(colors[i]);
             cellChild.setWeekDay(i);
 
@@ -129,7 +129,7 @@ public class CalenderWeekSide extends ViewGroup {
                 public void onClick(View v) {
                     //To change body of implemented methods use File | Settings | File Templates.
                     try {
-                        int weekday = ((CalenderWeekCell)v).getWeekDay();
+                        int weekday = ((CalendarWeekCell)v).getWeekDay();
                         //cursorListener.updateCursor(weekday);
                         updateCursor(weekday);
                         eventListListener.updateEventList(weekday);
@@ -151,7 +151,7 @@ public class CalenderWeekSide extends ViewGroup {
 
     public void updateCursor(int weekday) {
         //To change body of implemented methods use File | Settings | File Templates.
-        CalenderWeekSideCursor cursor = (CalenderWeekSideCursor)findViewById(R.id.cursor);
+        CalendarWeekSideCursor cursor = (CalendarWeekSideCursor)findViewById(R.id.cursor);
         TranslateAnimation ta = new TranslateAnimation(0,0,
                 totalHeight/9*(this.weekday - weekday),0);
         ta.setDuration(500);
@@ -171,7 +171,7 @@ public class CalenderWeekSide extends ViewGroup {
 
     public void initEventCount(int [] counts) {
         for (int i=0;i<7;i++) {
-            CalenderWeekCell cellChild = (CalenderWeekCell)getChildAt(i);
+            CalendarWeekCell cellChild = (CalendarWeekCell)getChildAt(i);
             TextView event_count = (TextView)cellChild.findViewById(R.id.event_count);
             if (counts[i]!=0) {
                 event_count.setVisibility(VISIBLE);

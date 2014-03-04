@@ -14,7 +14,7 @@ import cc.linktime.TimeLineCalender.library.R;
  * Time: 6:56 PM
  * To change this template use File | Settings | File Templates.
  */
-public class CalenderWeekSideCursor extends View implements ValueAnimator.AnimatorUpdateListener {
+public class CalendarWeekSideCursor extends View implements ValueAnimator.AnimatorUpdateListener {
     private int weekday=0;
     private int lastWeekday = 0;
     private int colorIndex=0;
@@ -28,15 +28,15 @@ public class CalenderWeekSideCursor extends View implements ValueAnimator.Animat
             getResources().getColor(R.color.fri_bg),
             getResources().getColor(R.color.sat_bg),};
 
-    public CalenderWeekSideCursor(Context context) {
+    public CalendarWeekSideCursor(Context context) {
         super(context);
     }
 
-    public CalenderWeekSideCursor(Context context, AttributeSet attrs) {
+    public CalendarWeekSideCursor(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public CalenderWeekSideCursor(Context context, AttributeSet attrs, int defStyle) {
+    public CalendarWeekSideCursor(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 

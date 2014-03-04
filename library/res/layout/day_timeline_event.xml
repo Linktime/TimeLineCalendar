@@ -1,4 +1,4 @@
-<cc.linktime.TimeLineCalendar.library.ui.CalenderTimeLineEvent
+<cc.linktime.TimeLineCalendar.library.ui.CalendarTimeLineEvent
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="wrap_content"
     android:layout_width="wrap_content"
@@ -17,4 +17,4 @@
             android:layout_width="wrap_content"
             android:padding="5dp"
             />
-    </cc.linktime.TimeLineCalendar.library.ui.CalenderTimeLineEvent>
+    </cc.linktime.TimeLineCalendar.library.ui.CalendarTimeLineEvent>

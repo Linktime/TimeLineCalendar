@@ -2,8 +2,8 @@ package cc.linktime.TimeLineCalendar.library.util;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import cc.linktime.TimeLineCalendar.library.ui.CalendarTimeLineEvent;
 import cc.linktime.TimeLineCalender.library.R;
-import cc.linktime.TimeLineCalendar.library.ui.CalenderTimeLineEvent;
 
 /**
  * Created with IntelliJ IDEA.
@@ -44,8 +44,8 @@ public class EventBuilder {
         return this;
     }
 
-    public CalenderTimeLineEvent builder(){
-        CalenderTimeLineEvent event = (CalenderTimeLineEvent)layoutInflater.inflate(R.layout.day_timeline_event,null);
+    public CalendarTimeLineEvent builder(){
+        CalendarTimeLineEvent event = (CalendarTimeLineEvent)layoutInflater.inflate(R.layout.day_timeline_event,null);
         event.setDuring(start,end);
         event.setEventInfo(info);
         return event;

@@ -1,4 +1,4 @@
-<cc.linktime.TimeLineCalendar.library.ui.CalenderDayTimeLine
+<cc.linktime.TimeLineCalendar.library.ui.CalendarDayTimeLine
     xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/timeline"
         android:layout_height="match_parent"
@@ -149,4 +149,4 @@
             android:text="23"
             />
 
-        </cc.linktime.TimeLineCalendar.library.ui.CalenderDayTimeLine>
+        </cc.linktime.TimeLineCalendar.library.ui.CalendarDayTimeLine>

@@ -12,22 +12,22 @@ import android.view.ViewGroup;
  * Time: 11:41 AM
  * To change this template use File | Settings | File Templates.
  */
-public class CalenderWeekCell extends ViewGroup {
+public class CalendarWeekCell extends ViewGroup {
 
 
     private int totalWidth;
     private int totalHeight;
     private int weekday;
 
-    public CalenderWeekCell(Context context) {
+    public CalendarWeekCell(Context context) {
         super(context);
     }
 
-    public CalenderWeekCell(Context context, AttributeSet attrs) {
+    public CalendarWeekCell(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public CalenderWeekCell(Context context, AttributeSet attrs, int defStyle) {
+    public CalendarWeekCell(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 

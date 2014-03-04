@@ -1,4 +1,4 @@
-<cc.linktime.TimeLineCalendar.library.ui.CalenderWeek
+<cc.linktime.TimeLineCalendar.library.ui.CalendarWeek
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
@@ -7,4 +7,4 @@
 
     <include layout="@layout/week_side" android:id="@+id/weekside"/>
 
-</cc.linktime.TimeLineCalendar.library.ui.CalenderWeek>
+</cc.linktime.TimeLineCalendar.library.ui.CalendarWeek>

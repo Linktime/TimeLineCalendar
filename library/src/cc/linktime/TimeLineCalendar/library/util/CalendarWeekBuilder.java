@@ -2,9 +2,9 @@ package cc.linktime.TimeLineCalendar.library.util;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import cc.linktime.TimeLineCalendar.library.ui.CalendarTimeLineEvent;
+import cc.linktime.TimeLineCalendar.library.ui.CalendarWeek;
 import cc.linktime.TimeLineCalender.library.R;
-import cc.linktime.TimeLineCalendar.library.ui.CalenderTimeLineEvent;
-import cc.linktime.TimeLineCalendar.library.ui.CalenderWeek;
 
 import java.util.ArrayList;
 
@@ -15,30 +15,30 @@ import java.util.ArrayList;
  * Time: 11:42 PM
  * To change this template use File | Settings | File Templates.
  */
-public class CalenderWeekBuilder {
+public class CalendarWeekBuilder {
     private Context context;
     private LayoutInflater layoutInflater;
-    private ArrayList<ArrayList<CalenderTimeLineEvent>> eventList;
-    public CalenderWeekBuilder(Context context) {
+    private ArrayList<ArrayList<CalendarTimeLineEvent>> eventList;
+    public CalendarWeekBuilder(Context context) {
         this.context = context;
         layoutInflater = LayoutInflater.from(context);
-        eventList = new ArrayList<ArrayList<CalenderTimeLineEvent>>();
+        eventList = new ArrayList<ArrayList<CalendarTimeLineEvent>>();
         for (int i=0;i<7;i++) {
-            eventList.add(new ArrayList<CalenderTimeLineEvent>());
+            eventList.add(new ArrayList<CalendarTimeLineEvent>());
         }
     }
 
-    public CalenderWeekBuilder setEventList(ArrayList<ArrayList<CalenderTimeLineEvent>> eventList) {
+    public CalendarWeekBuilder setEventList(ArrayList<ArrayList<CalendarTimeLineEvent>> eventList) {
         this.eventList = eventList;
         return this;
     }
 
-    public ArrayList<ArrayList<CalenderTimeLineEvent>> getEventList() {
+    public ArrayList<ArrayList<CalendarTimeLineEvent>> getEventList() {
         return eventList;
     }
 
-    public CalenderWeek builder() {
-        CalenderWeek week = (CalenderWeek)layoutInflater.inflate(R.layout.week,null);
+    public CalendarWeek builder() {
+        CalendarWeek week = (CalendarWeek)layoutInflater.inflate(R.layout.week,null);
         week.setEventList(eventList);
         return week;
     }

@@ -11,17 +11,17 @@ import android.view.ViewGroup;
  * Time: 4:44 PM
  * To change this template use File | Settings | File Templates.
  */
-public class CalenderHour extends ViewGroup {
+public class CalendarHour extends ViewGroup {
 
-    public CalenderHour(Context context) {
+    public CalendarHour(Context context) {
         super(context);
     }
 
-    public CalenderHour(Context context, AttributeSet attrs) {
+    public CalendarHour(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public CalenderHour(Context context, AttributeSet attrs, int defStyle) {
+    public CalendarHour(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 

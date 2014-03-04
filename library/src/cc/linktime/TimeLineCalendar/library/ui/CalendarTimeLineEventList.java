@@ -16,25 +16,25 @@ import java.util.ArrayList;
  * Time: 1:49 PM
  * To change this template use File | Settings | File Templates.
  */
-public class CalenderTimeLineEventList extends ViewGroup implements CalenderWeekSide.EventListListener {
+public class CalendarTimeLineEventList extends ViewGroup implements CalendarWeekSide.EventListListener {
 
     private int totalWidth;
     private int totalHeight;
     private int weekday;
 
-    private ArrayList<ArrayList<CalenderTimeLineEvent>> evenList;
+    private ArrayList<ArrayList<CalendarTimeLineEvent>> evenList;
     private int hour_height = getResources().getDimensionPixelSize(R.dimen.hour_height);
 
 
-    public CalenderTimeLineEventList(Context context) {
+    public CalendarTimeLineEventList(Context context) {
         super(context);
     }
 
-    public CalenderTimeLineEventList(Context context, AttributeSet attrs) {
+    public CalendarTimeLineEventList(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public CalenderTimeLineEventList(Context context, AttributeSet attrs, int defStyle) {
+    public CalendarTimeLineEventList(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 
@@ -56,7 +56,7 @@ public class CalenderTimeLineEventList extends ViewGroup implements CalenderWeek
         totalHeight = MeasureSpec.getSize(heightMeasureSpec);
         totalWidth = MeasureSpec.getSize(widthMeasureSpec);
         for (int i=0;i<getChildCount();i++) {
-            CalenderTimeLineEvent child = (CalenderTimeLineEvent)getChildAt(i);
+            CalendarTimeLineEvent child = (CalendarTimeLineEvent)getChildAt(i);
             child.measure(totalWidth,hour_height*child.getDuring());
         }
 
@@ -69,17 +69,17 @@ public class CalenderTimeLineEventList extends ViewGroup implements CalenderWeek
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         //To change body of implemented methods use File | Settings | File Templates.
         for (int i=0;i<getChildCount();i++) {
-            CalenderTimeLineEvent child = (CalenderTimeLineEvent)getChildAt(i);
+            CalendarTimeLineEvent child = (CalendarTimeLineEvent)getChildAt(i);
             child.layout(0,(int)(hour_height*(child.getStart()+1.5)),totalWidth,(int)(hour_height*(child.getEnd()+1.5)));
         }
     }
 
-    public void setEvenList(ArrayList<ArrayList<CalenderTimeLineEvent>> evenList){
+    public void setEvenList(ArrayList<ArrayList<CalendarTimeLineEvent>> evenList){
         this.evenList = evenList;
         updateEventList(weekday);
     }
 
-    public ArrayList<ArrayList<CalenderTimeLineEvent>> getEvenList() {
+    public ArrayList<ArrayList<CalendarTimeLineEvent>> getEvenList() {
         return evenList;
     }
 
@@ -87,7 +87,7 @@ public class CalenderTimeLineEventList extends ViewGroup implements CalenderWeek
     public int updateEventList(int weekday){
         this.weekday = weekday;
         removeAllViews();
-        for (CalenderTimeLineEvent event : evenList.get(weekday)) {
+        for (CalendarTimeLineEvent event : evenList.get(weekday)) {
             addView(event);
         }
         return evenList.get(weekday).size();

@@ -16,7 +16,7 @@ import cc.linktime.TimeLineCalender.library.R;
  * Time: 1:35 PM
  * To change this template use File | Settings | File Templates.
  */
-public class CalenderDayTimeLine extends ViewGroup {
+public class CalendarDayTimeLine extends ViewGroup {
 
     private int totalWidth;
     private int totalHeight;
@@ -24,15 +24,15 @@ public class CalenderDayTimeLine extends ViewGroup {
     private int middle;
     private final int HOUR_HEIGHT = (int)getResources().getDimensionPixelSize(R.dimen.hour_height);
 
-    public CalenderDayTimeLine(Context context) {
+    public CalendarDayTimeLine(Context context) {
         super(context);
     }
 
-    public CalenderDayTimeLine(Context context, AttributeSet attrs) {
+    public CalendarDayTimeLine(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public CalenderDayTimeLine(Context context, AttributeSet attrs, int defStyle) {
+    public CalendarDayTimeLine(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 
